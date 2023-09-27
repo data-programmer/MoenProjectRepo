@@ -2,4 +2,6 @@
     <string name="app_name">TestApp</string>
     <string name="loading_data">Loading data…</string>
     <string name="unknown_date">Date unknown</string>
+    <string name="image_image">Item image</string>
+    <string name="error_message">Error message image"</string>
 </resources>

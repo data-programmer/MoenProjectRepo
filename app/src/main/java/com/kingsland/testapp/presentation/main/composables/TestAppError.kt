@@ -3,6 +3,8 @@ package com.kingsland.testapp.presentation.main.composables
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
@@ -10,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,14 +24,18 @@ internal fun TestAppError(
     errorMessage: String = DataState.errorMessage
 ) {
     Column(
-        modifier = Modifier.width(340.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+        modifier = Modifier
+            .fillMaxHeight()
+            .width(360.dp),
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            modifier = Modifier.size(100.dp),
+            modifier = Modifier
+                .size(100.dp)
+                .padding(10.dp),
             painter = painterResource(R.drawable.error_image),
-            contentDescription = "Error message image"
+            contentDescription = stringResource(R.string.error_message)
         )
         Text(
             text = errorMessage,

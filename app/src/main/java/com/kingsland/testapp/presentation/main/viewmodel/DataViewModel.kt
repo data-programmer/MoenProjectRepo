@@ -33,9 +33,4 @@ class DataViewModel @Inject constructor(
             }
         }
     }
-
-    fun refreshData() {
-        dataState = DataState.Loading
-        getData()
-    }
 }

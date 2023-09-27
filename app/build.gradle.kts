@@ -42,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
     packaging {
         resources {
@@ -67,6 +67,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.moshi:moshi:1.14.0")
     implementation("com.squareup.retrofit2:converter-gson:2.7.1")
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")

@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.kingsland.testapp.R
 import com.kingsland.testapp.data.model.Item
 
@@ -27,14 +28,16 @@ fun TestAppItem(item: Item) {
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(5.dp)
+        ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = item.Title ?: item.title,
+                    text = item.capitalTitle ?: item.title,
                     fontSize = 22.sp
                 )
                 Text(
@@ -42,7 +45,11 @@ fun TestAppItem(item: Item) {
                     fontSize = 22.sp
                 )
             }
-            // TODO: Use coil
+            // A placeholder would normally be provided here
+            AsyncImage(
+                model = item.img,
+                contentDescription = stringResource(R.string.image_image)
+            )
             Text(
                 text = item.description,
                 fontSize = 14.sp
