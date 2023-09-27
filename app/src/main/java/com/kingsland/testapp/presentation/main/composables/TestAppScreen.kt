@@ -19,7 +19,10 @@ internal fun TestAppScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 20.dp)
+            .padding(
+                vertical = 8.dp,
+                horizontal = 20.dp
+            )
     ) {
         when (dataState) {
             is DataState.Loading -> {
