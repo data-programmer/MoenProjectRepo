@@ -23,7 +23,8 @@ class DataViewModel @Inject constructor(
 
     var dataState by mutableStateOf<DataState>(DataState.Loading)
 
-    private fun getData() {
+    // This should be private, but I'm leaving it public for testing
+    fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             dataState = try {
                 val result = getDataUseCase.getData()

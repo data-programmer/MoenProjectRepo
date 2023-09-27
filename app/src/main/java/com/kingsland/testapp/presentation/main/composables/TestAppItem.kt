@@ -46,7 +46,7 @@ internal fun TestAppItem(item: Item) {
                 // TODO: The date can be parsed into a more readable format
                 Text(
                     text = item.date ?: stringResource(R.string.unknown_date),
-                    fontSize = 22.sp
+                    fontSize = 18.sp
                 )
             }
             // A placeholder would normally be provided here

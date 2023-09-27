@@ -25,6 +25,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// We can mark compose functions with "internal" to restrict access if we want
 @Composable
 internal fun TestApp() {
     TestAppTheme {
