@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,12 +27,12 @@ internal fun TestAppItem(item: Item) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(350.dp)
-            .padding(5.dp),
+            .height(350.dp),
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Column(
+            modifier = Modifier.padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             Row(
@@ -60,7 +61,8 @@ internal fun TestAppItem(item: Item) {
             )
             Text(
                 text = item.description,
-                fontSize = 14.sp
+                fontSize = 14.sp,
+                overflow = TextOverflow.Ellipsis
             )
         }
     }
