@@ -4,4 +4,5 @@
     <string name="unknown_date">Date unknown</string>
     <string name="image_image">Item image</string>
     <string name="error_message">Error message image"</string>
+    <string name="get_offline_data">Go Offline</string>
 </resources>

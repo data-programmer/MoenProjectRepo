@@ -26,10 +26,10 @@ internal fun TestAppScreen(
                 TestAppLoading()
             }
             is DataState.Loaded -> {
-                TestAppMain()
+                TestAppMain(dataState.data)
             }
             else -> {
-                TestAppError()
+                TestAppError { viewModel.getOfflineData() }
             }
         }
     }

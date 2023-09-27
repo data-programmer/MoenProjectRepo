@@ -9,4 +9,5 @@ class DomainRepository @Inject constructor(
     private val dataSource: IDataSource
 ): IDomainRepository {
     override suspend fun getData(): Response = dataSource.getData()
+    override suspend fun getOfflineData(): Response = Response(IDataSource.getOfflineData())
 }

@@ -40,7 +40,7 @@ internal fun TestAppItem(item: Item) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = item.capitalTitle ?: item.title,
+                    text = item.capitalTitle ?: item.title ?: "",
                     fontSize = 22.sp
                 )
                 // TODO: The date can be parsed into a more readable format

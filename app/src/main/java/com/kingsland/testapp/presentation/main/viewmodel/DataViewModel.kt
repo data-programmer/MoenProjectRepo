@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kingsland.testapp.domain.usecase.GetDataUseCase
+import com.kingsland.testapp.domain.usecase.GetOfflineDataUseCase
 import com.kingsland.testapp.presentation.main.model.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DataViewModel @Inject constructor(
-    private val getDataUseCase: GetDataUseCase
+    private val getDataUseCase: GetDataUseCase,
+    private val getOfflineDataUseCase: GetOfflineDataUseCase
 ): ViewModel() {
 
     init {
@@ -34,4 +36,17 @@ class DataViewModel @Inject constructor(
             }
         }
     }
+
+    fun getOfflineData() {
+        dataState = DataState.Loading
+        viewModelScope.launch(Dispatchers.IO) {
+            dataState = try {
+                val result = getOfflineDataUseCase.getOfflineData()
+                DataState.Loaded(result.items)
+            } catch (exception: Exception) {
+                DataState.Error("This error should never occur.")
+            }
+        }
+    }
+
 }
