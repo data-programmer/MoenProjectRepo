@@ -21,9 +21,5 @@ class IDataSourceUnitsTest {
 
     }
 
-    @Test
-    fun `test repo`() {
 
-        val repo = DataRepo()
-    }
 }

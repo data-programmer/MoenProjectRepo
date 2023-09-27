@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kingsland.testapp.domain.usecase.GetDataUseCase
-import com.kingsland.testapp.presentation.main.model.DataSourceState
+import com.kingsland.testapp.presentation.main.model.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,22 +21,16 @@ class DataViewModel @Inject constructor(
         getData()
     }
 
-    var dataState by mutableStateOf<DataSourceState>(DataSourceState.Loading)
+    var dataState by mutableStateOf<DataState>(DataState.Loading)
 
     private fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             dataState = try {
                 val result = getDataUseCase.getData()
-                DataSourceState.Loaded(result.items)
+                DataState.Loaded(result.items)
             } catch (exception: Exception) {
-                DataSourceState.Error()
+                DataState.Error(DataState.errorMessage)
             }
-
         }
-    }
-
-    fun refreshData() {
-        dataState = DataSourceState.Loading
-        getData()
     }
 }
