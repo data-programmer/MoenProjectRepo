@@ -1,5 +1,6 @@
 package com.kingsland.testapp
 
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,12 +13,7 @@ import org.junit.Assert.*
 class IDataSourceUnitsTest {
 
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
-
-    @Test
-    fun `test data source`() {
+    fun `test data source`() = runTest {
 
     }
 
