@@ -22,7 +22,7 @@ import com.kingsland.testapp.R
 import com.kingsland.testapp.data.model.Item
 
 @Composable
-fun TestAppItem(item: Item) {
+internal fun TestAppItem(item: Item) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
